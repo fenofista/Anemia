@@ -22,11 +22,11 @@ def get_dataset():
 #             mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
             image = cv2.resize(image, (256, 256), interpolation=cv2.INTER_AREA)
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            gray = cv2.equalizeHist(gray)
-#             for i in range(256):
-#                 for j in range(256):
-#                     if(gray[i][j]>0):
-#                         gray[i][j] = np.log(gray[i][j])
+#             gray = cv2.equalizeHist(gray)
+            for i in range(256):
+                for j in range(256):
+                    if(gray[i][j]>0):
+                        gray[i][j] = np.log(gray[i][j])
             gray = gray.reshape(1,256,256)
 #             mask = cv2.resize(mask, (256, 256), interpolation=cv2.INTER_AREA)
             image = image[:,:,::-1]
